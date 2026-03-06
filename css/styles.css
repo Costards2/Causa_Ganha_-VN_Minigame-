@@ -1,0 +1,277 @@
+/* ====== ESTILOS GERAIS ====== */
+body {
+    font-family: Arial, sans-serif;
+    /*background: linear-gradient(to bottom, #000000, #5d5a5a); /*url("../img/bg_escritorio.jpg") repeat-y;*/
+    background: black;
+    padding: 0px 0px 25px 0px; /* superior | direita | inferior | esquerda */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #daa520;
+    padding: 25px 0px 25px 0px;
+    margin-bottom: 10px;
+}
+
+.office {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* HUD de pontuação */
+.score {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 14px;
+}
+
+/* HUD de tempo */
+.timer {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 14px;
+}
+
+/* ====== FUNDOS POR FASE (troque as imagens) ====== */
+.bg-escritorio {
+    background-image: url("../img/bg_escritorio.jpg");
+}
+
+.bg-tribunal {
+    background-image: url("../img/bg_tribunal.jpg");
+}
+
+.bg-casa {
+    background-image: url("../img/bg_casa.jpg");
+}
+
+.bg-delegacia {
+    background-image: url("../img/bg_delegacia.jpg");
+}
+
+.bg-militar {
+    background-image: url("../img/bg_militar.jpg");
+}
+
+.bg-corredor {
+    background-image: url("../img/bg_corredor.jpg");
+}
+
+.bg-universidade {
+    background-image: url("../img/bg_universidade.jpg");
+}
+
+.bg-bairro {
+    background-image: url("../img/bg_bairro.jpg");
+}
+
+.bg-audiencia {
+    background-image: url("../img/bg_audiencia.jpg");
+}
+
+/* fallback */
+.bg-default {
+    background-image: linear-gradient(135deg,#e0f7fa,#b2ebf2);
+}
+
+/* Overlay para leitura em cima dos fundos */
+.overlay {
+    background: rgba(245,245,245,0);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* ====== LAYOUT DO DIÁLOGO (igual ao seu desenho) ====== */
+
+/* Linha com balão grande à esquerda e sprite à direita */
+.dialogue-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* Área do balão (lado esquerdo) */
+.dialogue-area {
+    position: relative;
+    flex: 1;
+}
+
+/* Plaquinha com o nome acima do balão */
+.speaker-name-box {
+    position: absolute;
+    top: -26px;
+    left: 40px;
+    background: #ffffff;
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: 2px solid #daa520;
+    font-weight: bold;
+    color: #daa520;
+}
+
+/* Balão grande arredondado com a fala */
+.speech-big-box {
+    background: #ffffff;
+    border-radius: 40px;
+    border: 2px solid #daa520;
+    padding: 18px 24px;
+    min-height: 80px;
+}
+
+/* ====== SPRITE DO ESTAGIÁRIO ====== */
+
+/* Moldura onde o sprite do estagiário fica */
+.character {
+    width: 120px;
+    height: 160px;
+
+    /* Placeholder verde enquanto não houver sprite */
+    background: #daa520;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Sprite do estagiário (imagem) */
+.character-sprite {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* ====== RESTO DA UI ====== */
+
+/* Enunciado do cliente */
+.client-dialogue {
+    background: #fff;
+    border-left: 5px solid #ff9800;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* Alternativas */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #daa520;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.options button:hover {
+    transform: translateY(-1px);
+    background: #e3f2fd;
+}
+
+/* Feedback de acerto/erro visual */
+.correct {
+    background: #4caf50 !important;
+    color: white;
+    border-color: #4caf50 !important;
+}
+
+.incorrect {
+    background: #f44336 !important;
+    color: white;
+    border-color: #f44336 !important;
+}
+
+/* Caixa de feedback */
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Botões gerais */
+.next {
+    margin-top: 10px;
+    background: #daa520;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.start-button {
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    background: #daa520;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .dialogue-row {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .character {
+        width: 90px;
+        height: 120px;
+        font-size: 12px;
+    }
+
+    .options button {
+        font-size: 18px;
+        padding: 14px;
+    }
+}

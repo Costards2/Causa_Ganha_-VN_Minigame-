@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isso é Causa Ganha, Doutor?</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HUD de pontuação e tempo -->
+    <div class="score" id="score">Pontos: 0 / 0</div>
+    <div class="timer" id="timer">Tempo: 05:00</div>
+
+    <h1>Isso é Causa Ganha, Doutor?</h1>
+
+    <!-- A classe de fundo (bg-...) será aplicada dinamicamente via JS -->
+    <div class="office bg-default" id="office-wrapper">
+        <div class="overlay" id="game">
+            <div style="text-align:center;">
+                <p>Você é um advogado sênior. O estagiário trará casos dizendo: Isso é causa ganha, doutor.</p>
+                <button class="start-button" onclick="initGame()">
+                    Carregar perguntas e iniciar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

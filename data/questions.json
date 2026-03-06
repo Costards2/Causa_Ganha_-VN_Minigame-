@@ -1,0 +1,213 @@
+[
+  {
+    "client": "Mariângela",
+    "bgClass": "bg-escritorio",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a cliente é a Mariângela, advogada e lactante.",
+      "Meu deus e os direitos dos bebes?",
+      "Ela pediu preferência de audiência, mas o juiz negou. Veja o que ela conta:"
+    ],
+    "dialogue": "Sou advogada e estou amamentando minha filha recém-nascida. Pedi preferência para realizar minha audiência hoje, mas o juiz negou porque tem outra advogada comigo no processo que poderia fazer o ato. Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 0,
+    "explanation": "A legislação garante à advogada lactante a preferência na ordem das sustentações orais e audiências a serem realizadas a cada dia, mediante prova de sua condição. Tal direito é pessoal da profissional e não pode ser afastado sob o argumento de que há outros advogados constituídos nos autos."
+  },
+  {
+    "client": "Anderson",
+    "bgClass": "bg-tribunal",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, o Anderson já advogou para o Epitácio em um caso de família.",
+      "Agora querem que ele seja testemunha em um caso empresarial. Olhe a dúvida dele:"
+    ],
+    "dialogue": "Fui advogado do Epitácio em um caso de família. Agora ele está em um caso de empresas e quer que eu seja testemunha dele, dizendo que ele me autoriza a falar tudo. Sou obrigado a depor já que ele deixou? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 3,
+    "explanation": "Esta questão é classificada como imperfeita pela crítica doutrinária. O gabarito oficial da banca indicou que o advogado poderia depor sem revelar o sigilo. Contudo, a doutrina e o Art. 7º, XIX do Estatuto sustentam que o advogado deve recusar-se a depor sobre fatos de que saiba pelo ofício, mesmo com autorização do cliente, pois o sigilo profissional é de ordem pública e não um direito disponível do constituinte."
+  },
+  {
+    "client": "Joana",
+    "bgClass": "bg-casa",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a Joana tem 89 anos e está cheia de empréstimos para cuidar da saúde.",
+      "Ela diz que as parcelas já superam a aposentadoria. Veja o relato:"
+    ],
+    "dialogue": "Tenho 89 anos e fiz vários empréstimos para cuidar da minha saúde. Agora as parcelas somadas são maiores que a minha aposentadoria e não sobra dinheiro nem para comer. Posso pedir na justiça para renegociar tudo de uma vez e garantir o mínimo para eu sobreviver? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 0,
+    "explanation": "Com base nas atualizações do Código de Defesa do Consumidor, o consumidor superendividado tem o direito de requerer judicialmente a repactuação de dívidas, visando a preservação do mínimo existencial. O juiz pode instituir um plano de pagamento compatível com a renda da pessoa para garantir sua subsistência."
+  },
+  {
+    "client": "Alice",
+    "bgClass": "bg-tribunal",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a advogada Alice está sendo investigada por fraude.",
+      "Ofereceram colaboração premiada se ela entregar provas contra cliente atual e ex-cliente. Olhe a proposta:"
+    ],
+    "dialogue": "Doutora Alice, a senhora está sendo investigada por fraude. Se a senhora fizer uma colaboração premiada e nos entregar as provas que tem contra seu atual cliente e seu ex-cliente, nós aliviamos sua pena. Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 1,
+    "explanation": "O Estatuto da Advocacia (Art. 7º, § 6º-I) proíbe expressamente que o advogado efetue colaboração premiada contra quem seja ou tenha sido seu cliente. Caso o faça, a advogada sofrerá a pena de exclusão da OAB, além de responder criminalmente por violação de segredo profissional."
+  },
+  {
+    "client": "José",
+    "bgClass": "bg-delegacia",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a polícia apareceu no escritório do José com mandado.",
+      "Querem levar o servidor inteiro com dados de 500 clientes. Veja a preocupação dele:"
+    ],
+    "dialogue": "A polícia veio no meu escritório com um mandado contra mim e quer levar meu servidor inteiro, onde estão os dados de todos os meus 500 clientes. Posso impedir que eles levem os dados de quem não é investigado? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 2,
+    "explanation": "A busca e apreensão é legítima se houver mandado, mas o advogado tem o direito de exigir a presença de um representante da OAB e acompanhar a análise dos arquivos. É proibida a utilização de documentos ou mídias de clientes que não sejam alvo da investigação, devendo ser garantido o sigilo de terceiros."
+  },
+  {
+    "client": "Simone",
+    "bgClass": "bg-militar",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a Simone acompanha uma investigação preliminar militar.",
+      "Ela não pôde assistir ao depoimento do cliente nem fotografar documentos. Veja o que ela relata:"
+    ],
+    "dialogue": "Meu cliente está em uma investigação preliminar militar e a autoridade não me deixou acompanhar o depoimento dele nem tirar fotos dos documentos já prontos. Posso anular tudo o que eles fizeram até agora? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 3,
+    "explanation": "Embora a Lei 13.245/2016 garante o acesso, as fontes mostram que as bancas e os tribunais ainda divergem sobre a natureza da nulidade. Alguns entendem que a falta do advogado na fase de inquérito gera nulidade absoluta de todos os atos derivados; outros defendem que, por ser fase pré-processual e informativa, a nulidade seria apenas relativa, dependendo da prova do prejuízo, o que torna o desfecho da causa incerto."
+  },
+  {
+    "client": "Clarisse",
+    "bgClass": "bg-corredor",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a Clarisse esqueceu de devolver um processo e ficou um mês com os autos.",
+      "O juiz proibiu ela de fazer carga em qualquer outro processo até o fim da causa. Olhe a situação:"
+    ],
+    "dialogue": "Esqueci de devolver um processo e fiquei com ele por um mês. O juiz me proibiu de fazer carga de qualquer outro processo até o fim da causa. Ele pode me punir assim direto sem me intimar para devolver antes? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 3,
+    "explanation": "Existe uma divergência interpretativa nas fontes. O Estatuto (Art. 34, XXII) e a jurisprudência sugerem que a infração ética só ocorre se o advogado não devolver os autos após ser intimado pessoalmente para tanto. No entanto, muitos juízes aplicam a sanção processual de perda da vista fora de cartório imediatamente após o vencimento do prazo, gerando conflitos entre a prática judicial e o rigor estatutário."
+  },
+  {
+    "client": "Pedro",
+    "bgClass": "bg-universidade",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, o Pedro é brasileiro nato e se formou em Direito no Equador.",
+      "Ele quer tirar a OAB sem revalidar o diploma estrangeiro. Veja o que ele pergunta:"
+    ],
+    "dialogue": "Sou brasileiro nato, mas me formei em Direito no Equador. Quero tirar minha carteira da OAB no Brasil sem ter que fazer aquela burocracia de revalidar o diploma, afinal, sou brasileiro. Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 1,
+    "explanation": "Para a inscrição nos quadros da OAB, o diploma de graduação em Direito obtido em instituição estrangeira deve estar devidamente revalidado no Brasil, conforme exigência do Art. 8º, § 2º, do Estatuto, independentemente de o candidato ser brasileiro nato."
+  },
+  {
+    "client": "Margot",
+    "bgClass": "bg-bairro",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, a Margot comprou uma casa de um rapaz que depois foi preso.",
+      "A justiça sequestrou o imóvel alegando que ainda é dele. Ela pagou tudo, mas não registrou. Veja a dúvida:"
+    ],
+    "dialogue": "Comprei uma casa de um rapaz que depois foi preso. Agora a justiça sequestrou a casa alegando que é dele, mas eu paguei tudo certinho, embora ainda não tenha registrado no cartório. Consigo a casa de volta? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 2,
+    "explanation": "Como adquirente de boa-fé e a título oneroso, Margot pode defender sua posse. O caminho é o ajuizamento de embargos de terceiro (ou incidente de restituição no CPP). O sucesso depende da comprovação cabal de que a compra foi feita antes do crime ou sem conhecimento da origem ilícita dos bens."
+  },
+  {
+    "client": "Júnior",
+    "bgClass": "bg-audiencia",
+    "spriteIntro": "img/estagiario_intro.jpg",
+    "spriteCase": "img/estagiario_case.jpg",
+    "spriteCorrect": "img/estagiario_feliz.jpg",
+    "spriteWrong": "img/estagiario_preocupado.jpg",
+    "internLines": [
+      "Doutor, o Júnior foi denunciado por estelionato.",
+      "Na audiência, o promotor exigiu acareação com uma testemunha que teria mentido. Veja a ameaça que ele recebeu:"
+    ],
+    "dialogue": "Fui denunciado por estelionato. Na audiência, o promotor exigiu que eu fizesse uma acareação (um debate frente a frente) com uma testemunha que mentiu sobre mim. Eu me recusei a participar, mas ele diz que vou ser preso por desobediência se não aceitar. Posso me negar sem ser punido? Isso é causa ganha?",
+    "options": [
+      "(A) Sim, causa ganha",
+      "(B) Não, improcedente",
+      "(C) Parcialmente procedente",
+      "(D) Não dá pra afirmar"
+    ],
+    "correct": 0,
+    "explanation": "Ninguém é obrigado a produzir prova contra si mesmo (nemo tenetur se detegere). O princípio da presunção de inocência e da ampla defesa garantem ao réu o direito de não participar de procedimentos como a acareação, sem que isso configure crime de desobediência ou qualquer prejuízo jurídico."
+  }
+]
