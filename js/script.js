@@ -1,36 +1,89 @@
-// ====== ESTADO GLOBAL ======
-let questions = [];
-let currentQuestion = 0;
-let score = 0;
-let introIndex = 0;
+/* ========================================
+   VISUAL NOVEL ENGINE
+   "Isso é Causa Ganha, Doutor?"
+   ======================================== */
 
-// Timer (em segundos) – 5 minutos = 300 s
-const TOTAL_TIME = 300;
+// ========================================
+// ESTADO GLOBAL
+// ========================================
+let gameData = null;
+let currentQuestionIndex = 0;
+let currentDialogueIndex = 0;
+let currentDialogueSet = [];
+let dialogueMode = '';
+let score = 0;
+let selectedAnswer = null;
+
+// Timer
+const TOTAL_TIME = 720;
 let remainingTime = TOTAL_TIME;
 let timerIntervalId = null;
 
-// Referências de DOM
-const scoreDiv = document.getElementById('score');
+// ========================================
+// REFERÊNCIAS DOM
+// ========================================
+const menuScreen = document.getElementById('menu-screen');
+const sceneBg = document.getElementById('scene-bg');
+const charactersContainer = document.getElementById('characters-container');
+const dialogueBox = document.getElementById('dialogue-box');
+const speakerName = document.getElementById('speaker-name');
+const dialogueText = document.getElementById('dialogue-text');
+const continueIndicator = document.getElementById('continue-indicator');
+const quizPanel = document.getElementById('quiz-panel');
+const quizContext = document.getElementById('quiz-context');
+const quizOptions = document.getElementById('quiz-options');
 const timerDiv = document.getElementById('timer');
-const gameDiv = document.getElementById('game');
-const officeWrapper = document.getElementById('office-wrapper');
+const scoreDiv = document.getElementById('score');
 
-// Áudio (todos os sons do jogo)
+// ========================================
+// ÁUDIO
+// ========================================
 const clickSound = new Audio('audio/click.mp3');
-const acertoSound = new Audio('audio/acerto.mp3');      // Som de acerto
-const erroSound = new Audio('audio/erro.mp3');          // Som de erro
-clickSound.volume = 0.4;
-correctSound.volume = 0.7;
+const acertoSound = new Audio('audio/acerto.mp3');
+const erroSound = new Audio('audio/erro.mp3');
+clickSound.volume = 0.3;
 acertoSound.volume = 0.6;
 erroSound.volume = 0.6;
 
-// ====== HUD ======
-function updateScore() {
-    if (questions.length === 0) {
-        scoreDiv.textContent = 'Pontos: 0 / 0';
-    } else {
-        scoreDiv.textContent = `Pontos: ${score} / ${questions.length}`;
+// ========================================
+// INICIALIZAÇÃO
+// ========================================
+async function startGame() {
+    clickSound.play().catch(() => {});
+    
+    try {
+        const response = await fetch('data/questions.json');
+        gameData = await response.json();
+        
+        currentQuestionIndex = 0;
+        score = 0;
+        remainingTime = TOTAL_TIME;
+        
+        menuScreen.classList.add('hidden');
+        setupScene();
+        updateHUD();
+        startTimer();
+        
+        loadQuestion(0);
+        
+    } catch (error) {
+        console.error('Erro ao carregar questions.json:', error);
+        alert('Erro ao carregar o jogo. Verifique o arquivo data/questions.json.');
     }
+}
+
+// ========================================
+// CONFIGURAÇÃO CENÁRIO
+// ========================================
+function setupScene() {
+    sceneBg.className = 'scene-background escritorio';
+}
+
+// ========================================
+// HUD
+// ========================================
+function updateHUD() {
+    scoreDiv.textContent = `Pontos: ${score} / ${gameData.length}`;
 }
 
 function formatTime(seconds) {
@@ -39,245 +92,233 @@ function formatTime(seconds) {
     return `${m}:${s}`;
 }
 
-function updateTimerDisplay() {
+function updateTimer() {
     timerDiv.textContent = `Tempo: ${formatTime(remainingTime)}`;
 }
 
 function startTimer() {
-    remainingTime = TOTAL_TIME;
-    updateTimerDisplay();
-
-    if (timerIntervalId !== null) {
-        clearInterval(timerIntervalId);
-    }
-
+    updateTimer();
+    if (timerIntervalId) clearInterval(timerIntervalId);
+    
     timerIntervalId = setInterval(() => {
         remainingTime--;
-        updateTimerDisplay();
+        updateTimer();
         if (remainingTime <= 0) {
-            clearInterval(timerIntervalId);
-            endGameTimeUp();
+            endGame('timeout');
         }
     }, 1000);
 }
 
 function stopTimer() {
-    if (timerIntervalId !== null) {
+    if (timerIntervalId) {
         clearInterval(timerIntervalId);
         timerIntervalId = null;
     }
 }
 
-// ====== CENÁRIO ======
-function applyBackground() {
-    officeWrapper.className = 'office';
-    const q = questions[currentQuestion];
-    const bgClass = q.bgClass || 'bg-default';
-    officeWrapper.classList.add(bgClass);
+// ========================================
+// CARREGAMENTO QUESTÃO
+// ========================================
+function loadQuestion(index) {
+    currentQuestionIndex = index;
+    const question = gameData[index];
+    
+    currentDialogueSet = question.dialogues.intro;
+    currentDialogueIndex = 0;
+    dialogueMode = 'intro';
+    
+    showDialogue();
 }
 
-// ====== INICIALIZAÇÃO ======
-async function initGame() {
-    clickSound.play().catch(() => {});
-
-    try {
-        const res = await fetch('data/questions.json');
-        questions = await res.json();
-        score = 0;
-        currentQuestion = 0;
-        updateScore();
-        startTimer();
-        loadQuestion();
-    } catch (e) {
-        console.error('Erro ao carregar questions.json', e);
-        gameDiv.innerHTML = '<p>Erro ao carregar questões. Verifique o arquivo questions.json.</p>';
+// ========================================
+// SISTEMA DE DIÁLOGO
+// ========================================
+function showDialogue() {
+    const line = currentDialogueSet[currentDialogueIndex];
+    
+    if (!line) {
+        advanceDialoguePhase();
+        return;
     }
+    
+    speakerName.textContent = line.speaker;
+    dialogueText.textContent = line.text;
+    
+    updateCharacterSprites(line.speaker, line.sprite || 'neutro');
+    
+    continueIndicator.classList.remove('hidden');
 }
 
-// ====== FLUXO DE QUESTÕES ======
-function loadQuestion() {
-    introIndex = 0;
-    applyBackground();
-    renderIntro();
-}
-
-// Layout da INTRO no formato do seu desenho
-function renderIntro() {
-    const q = questions[currentQuestion];
-
-    const spriteHtml = q.spriteIntro
-        ? `<img src="${q.spriteIntro}" alt="Estagiário" class="character-sprite">`
-        : 'Estagiário';
-
-    gameDiv.innerHTML = `
-        <div class="dialogue-row">
-            <div class="dialogue-area">
-                <div class="speaker-name-box">Estagiário</div>
-                <div class="speech-big-box">
-                    "Isso é causa ganha, doutor!"<br><br>
-                    ${q.internLines[introIndex]}
-                </div>
-            </div>
-
-            <div class="character">
-                <!-- Sprite do estagiário na intro -->
-                ${spriteHtml}
-            </div>
-        </div>
-
-        <div style="margin-top: 20px; text-align: right;">
-            <button class="next" onclick="advanceIntro()">
-                Avançar
-            </button>
-        </div>
-    `;
-}
-
-function advanceIntro() {
+function nextDialogue() {
     clickSound.play().catch(() => {});
-    const q = questions[currentQuestion];
-    introIndex++;
-    if (introIndex < q.internLines.length) {
-        renderIntro();
+    
+    currentDialogueIndex++;
+    
+    if (currentDialogueIndex < currentDialogueSet.length) {
+        showDialogue();
     } else {
-        renderQuestion();
+        advanceDialoguePhase();
     }
 }
 
-// Layout da PERGUNTA no mesmo formato
-function renderQuestion() {
-    const q = questions[currentQuestion];
+function advanceDialoguePhase() {
+    const question = gameData[currentQuestionIndex];
+    
+    if (dialogueMode === 'intro') {
+        dialogueMode = 'quiz';
+        showQuiz();
+    } else if (dialogueMode === 'correct' || dialogueMode === 'wrong') {
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < gameData.length) {
+            loadQuestion(currentQuestionIndex);
+        } else {
+            endGame('completed');
+        }
+    }
+}
 
-    const spriteHtml = q.spriteCase
-        ? `<img src="${q.spriteCase}" alt="Estagiário" class="character-sprite">`
-        : 'Estagiário';
+// ========================================
+// CONTROLE VISUAL DOS SPRITES
+// ========================================
+function hideCharacters() {
+    charactersContainer.style.visibility = 'hidden';
+}
 
-    gameDiv.innerHTML = `
-        <div class="dialogue-row">
-            <div class="dialogue-area">
-                <div class="speaker-name-box">Estagiário</div>
-                <div class="speech-big-box">
-                    Pronto, doutor, veja o caso do(a) ${q.client}.
-                </div>
-            </div>
+function showCharacters() {
+    charactersContainer.style.visibility = 'visible';
+}
 
-            <div class="character">
-                <!-- Sprite do estagiário apresentando o caso -->
-                ${spriteHtml}
-            </div>
-        </div>
+// ========================================
+// ATUALIZAÇÃO SPRITES
+// ========================================
+function updateCharacterSprites(speaker, sprite) {
+    charactersContainer.innerHTML = '';
+    
+    if (speaker === 'Advogado') {
+        const advogadoImg = document.createElement('img');
+        advogadoImg.src = `img/adv sprites/advogado_${sprite}.png`;
+        advogadoImg.alt = 'Advogado Sênior';
+        advogadoImg.className = 'character-sprite speaking';
+        advogadoImg.onerror = function() {
+            this.style.display = 'none';
+        };
+        charactersContainer.appendChild(advogadoImg);
+    }
+    else if(speaker == 'Estagiário'){
+        const estagiarioImg = document.createElement('img');
+        estagiarioImg.src = `img/stg sprites/estagiario_${sprite}.png`;
+        estagiarioImg.alt = 'Estagiário';
+        estagiarioImg.className = 'character-sprite speaking';
+        estagiarioImg.onerror = function() {
+            this.style.display = 'none';
+        };
+        charactersContainer.appendChild(estagiarioImg);
+    }
+}
 
-        <div class="client-dialogue">
-            <strong>Cliente ${q.client} diz:</strong><br>
-            ${q.dialogue}
-        </div>
-
-        <div class="options"></div>
-    `;
-
-    const optionsDiv = gameDiv.querySelector('.options');
-    q.options.forEach((opt, i) => {
+// ========================================
+// SISTEMA QUIZ
+// ========================================
+function showQuiz() {
+    const question = gameData[currentQuestionIndex];
+    
+    hideCharacters();
+    
+    dialogueBox.style.display = 'none';
+    quizPanel.classList.remove('hidden');
+    
+    quizContext.innerHTML = `<strong>Cliente ${question.client}:</strong><br>${question.dialogue}`;
+    
+    quizOptions.innerHTML = '';
+    question.options.forEach((option, index) => {
         const btn = document.createElement('button');
-        btn.textContent = opt;
-        btn.onclick = () => selectAnswer(i);
-        optionsDiv.appendChild(btn);
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(index);
+        quizOptions.appendChild(btn);
     });
 }
 
-function selectAnswer(selectedIndex) {
-    clickSound.play().catch(() => {});
-
-    const q = questions[currentQuestion];
-    const buttons = document.querySelectorAll('.options button');
-
-    buttons.forEach(btn => btn.disabled = true);
-
-    buttons[q.correct].classList.add('correct');
-    if (selectedIndex !== q.correct) {
-        buttons[selectedIndex].classList.add('incorrect');
-    }
-
-    const isCorrect = selectedIndex === q.correct;
+function selectAnswer(index) {
+    const question = gameData[currentQuestionIndex];
+    selectedAnswer = index;
     
-    // ====== TOCA SOM DE ACERTO OU ERRO ======
+    const buttons = quizOptions.querySelectorAll('button');
+    buttons.forEach(btn => btn.disabled = true);
+    
+    buttons[question.correct].classList.add('correct');
+    if (index !== question.correct) {
+        buttons[index].classList.add('incorrect');
+    }
+    
+    const isCorrect = (index === question.correct);
     if (isCorrect) {
         score++;
-        updateScore();
-        acertoSound.play().catch(() => {});      // Som de acerto
+        updateHUD();
+        acertoSound.play().catch(() => {});
     } else {
-        erroSound.play().catch(() => {});        // Som de erro
+        erroSound.play().catch(() => {});
     }
+    
+    setTimeout(() => {
+        showFeedbackDialogue(isCorrect);
+    }, 1500);
+}
 
-    // Troca sprite conforme reação (feliz x preocupado)
-    const characterDiv = document.querySelector('.character');
-    if (characterDiv) {
-        if (isCorrect && q.spriteCorrect) {
-            characterDiv.innerHTML = `
-                <!-- Sprite do estagiário feliz (acerto) -->
-                <img src="${q.spriteCorrect}" alt="Estagiário feliz" class="character-sprite">
-            `;
-        } else if (!isCorrect && q.spriteWrong) {
-            characterDiv.innerHTML = `
-                <!-- Sprite do estagiário preocupado (erro) -->
-                <img src="${q.spriteWrong}" alt="Estagiário preocupado" class="character-sprite">
-            `;
-        } else {
-            characterDiv.textContent = 'Estagiário';
+function showFeedbackDialogue(isCorrect) {
+    const question = gameData[currentQuestionIndex];
+    
+    quizPanel.classList.add('hidden');
+    dialogueBox.style.display = 'block';
+    
+    showCharacters();
+    
+    if (isCorrect) {
+        currentDialogueSet = question.dialogues.correct;
+        dialogueMode = 'correct';
+    } else {
+        currentDialogueSet = question.dialogues.wrong;
+        dialogueMode = 'wrong';
+    }
+    
+    currentDialogueIndex = 0;
+    showDialogue();
+}
+
+// ========================================
+// FIM DE JOGO
+// ========================================
+function endGame(reason) {
+    stopTimer();
+    
+    dialogueBox.style.display = 'none';
+    quizPanel.classList.add('hidden');
+    charactersContainer.innerHTML = '';
+    
+    let message = '';
+    if (reason === 'completed') {
+        message = `<h1>Parabéns!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você completou todas as questões.</p><p style="color: #ffd700; font-size: 24px;">Pontuação final: <strong>${score} / ${gameData.length}</strong></p>`;
+    } else if (reason === 'timeout') {
+        message = `<h1>Tempo esgotado!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você não conseguiu completar a tempo.</p><p style="color: #ffd700; font-size: 24px;">Pontuação obtida: <strong>${score} / ${gameData.length}</strong></p>`;
+    }
+    
+    menuScreen.innerHTML = message + '<button class="start-button" onclick="location.reload()">Jogar Novamente</button>';
+    menuScreen.classList.remove('hidden');
+}
+
+// ========================================
+// EVENT LISTENERS
+// ========================================
+dialogueBox.addEventListener('click', () => {
+    if (!quizPanel.classList.contains('hidden')) return;
+    nextDialogue();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        if (quizPanel.classList.contains('hidden')) {
+            e.preventDefault();
+            nextDialogue();
         }
     }
-
-    setTimeout(() => {
-        showFeedback(isCorrect, q.explanation);
-    }, 1200);
-}
-
-function showFeedback(isCorrect, explanation) {
-    const feedback = document.createElement('div');
-    feedback.className = `feedback ${isCorrect ? 'success' : 'error'}`;
-    feedback.innerHTML = `
-        <strong>${isCorrect ? 'Acertou!' : 'Errou!'}</strong><br>
-        ${explanation}
-        <br>
-        <button class="next" onclick="nextQuestion()">
-            Próxima fase
-        </button>
-    `;
-    gameDiv.appendChild(feedback);
-}
-
-function nextQuestion() {
-    clickSound.play().catch(() => {});
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        endGameNormal();
-    }
-}
-
-// ====== FIM DE JOGO ======
-function endGameNormal() {
-    stopTimer();
-    officeWrapper.className = 'office bg-default';
-    gameDiv.innerHTML = `
-        <h2>Fim do jogo!</h2>
-        <p>Você atendeu todos os clientes.</p>
-        <p>Pontuação final: <strong>${score} / ${questions.length}</strong></p>
-        <button class="start-button" onclick="initGame()">
-            Jogar novamente
-        </button>
-    `;
-}
-
-function endGameTimeUp() {
-    stopTimer();
-    officeWrapper.className = 'office bg-default';
-    gameDiv.innerHTML = `
-        <h2>Tempo esgotado!</h2>
-        <p>Você não conseguiu atender todos os clientes dentro do tempo.</p>
-        <p>Pontuação obtida até agora: <strong>${score} / ${questions.length}</strong></p>
-        <button class="start-button" onclick="initGame()">
-            Tentar novamente
-        </button>
-    `;
-}
+});

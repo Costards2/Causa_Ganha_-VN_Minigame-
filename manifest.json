@@ -1,0 +1,14 @@
+{
+  "name": "Causa Ganha - Direito",
+  "version": "1.2.0",
+  "description": "Quiz interativo com 10 questões",
+  "entryPoint": "index.html",
+  "type": "html",
+  "author": "Pedro Costard & Ana Clara",
+  "minWidth": 800,  
+  "minHeight": 600,
+  "aspectRatio": "16:9",
+  "aiEnabled": false,
+  "maxAiRequests": 0,
+  "dependencies": []
+}

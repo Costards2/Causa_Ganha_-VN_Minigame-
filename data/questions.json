@@ -1,213 +1,375 @@
 [
   {
     "client": "Mariângela",
-    "bgClass": "bg-escritorio",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a cliente é a Mariângela, advogada e lactante.",
-      "Meu deus e os direitos dos bebes?",
-      "Ela pediu preferência de audiência, mas o juiz negou. Veja o que ela conta:"
-    ],
     "dialogue": "Sou advogada e estou amamentando minha filha recém-nascida. Pedi preferência para realizar minha audiência hoje, mas o juiz negou porque tem outra advogada comigo no processo que poderia fazer o ato. Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 0,
-    "explanation": "A legislação garante à advogada lactante a preferência na ordem das sustentações orais e audiências a serem realizadas a cada dia, mediante prova de sua condição. Tal direito é pessoal da profissional e não pode ser afastado sob o argumento de que há outros advogados constituídos nos autos."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutoooor!!! Ufa, ainda bem que o senhor chegou."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Acabei ficando responsável por alguns casos que me surgiram dúvidas."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Só um segundinho, estou procurando aqui o arquivo."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "No seu tempo."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Achei! Ah, não, p-pera, não é esse."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "É… Acho que se o processo estiver tão perdido quanto você, acho que nem eu posso te ajudar com nada."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Desculpa doutor, é que são tantos processos, que acabei me confundindo"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Está tudo bem, faz parte. Manda a bala agora."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Então doutor, o caso é de uma advogada. Ela está amamentando a filha recém nascida e pediu prioridade na audiência de hoje"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Hmm, continue"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Então, é… O juíz negou"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Já começamos bem."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutor, gostaria de saber se seria causa ganha?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Mas rapaz, pense um pouco, e me fale o que você acha desse caso"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E-eu acho que é causa ganha??"},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "Claro que sim, rapaz!"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "A advogada lactante tem direito à prioridade nas audiências."}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "E-eu não sei"},
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "(Suspira) Olha, mesmo que o juiz negue-a e queira “inventar uma regra nova aqui rapidinho”."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Esse direito é pessoal dela. Não dá pro juiz ignorar isso só porque tem outro advogado disponível."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "A advogada lactante tem direito à prioridade nas audiências. É CAUSA GANHA."}
+      ]
+    }
   },
   {
     "client": "Anderson",
-    "bgClass": "bg-tribunal",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, o Anderson já advogou para o Epitácio em um caso de família.",
-      "Agora querem que ele seja testemunha em um caso empresarial. Olhe a dúvida dele:"
-    ],
     "dialogue": "Fui advogado do Epitácio em um caso de família. Agora ele está em um caso de empresas e quer que eu seja testemunha dele, dizendo que ele me autoriza a falar tudo. Sou obrigado a depor já que ele deixou? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 3,
-    "explanation": "Esta questão é classificada como imperfeita pela crítica doutrinária. O gabarito oficial da banca indicou que o advogado poderia depor sem revelar o sigilo. Contudo, a doutrina e o Art. 7º, XIX do Estatuto sustentam que o advogado deve recusar-se a depor sobre fatos de que saiba pelo ofício, mesmo com autorização do cliente, pois o sigilo profissional é de ordem pública e não um direito disponível do constituinte."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Qual é a próxima?"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Essa próxima aqui é bem mais complicada, não consegui identificar qual seria a resposta correta."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Já estou até imaginando o porquê"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "O cliente foi advogado para uma pessoa em um caso de família. E essa pessoa quer que o nosso cliente seja testemunha em um caso empresarial"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ele é obrigado a depor?"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Aah! Quase me esqueci."},
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "Lá vem você se atrapalhando novamente"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "A pessoa falou para nosso cliente que ele pode depor sem sigilo, que está liberado ser testemunha"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Essa daí é bem interessante"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Eu acertei, mas não entendi direito"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Então, essa é a sensação correta para esta questão"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Mas como assim “Não dá para afirmar?”"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Preste atenção, estagiário!! Embora seja permitido esse depoimento…"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "A doutrina e o Art. 7º, XIX do Estatuto determinam que o advogado deve recusar-se a depor, pois o sigilo profissional é de ordem pública."}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Eu sabia que essa daqui seria complicado, mas não sabia o quanto"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Repare, essa é uma situação que juridicamente há discussões"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Este caso é classificado como imperfeito"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Porque hoje permite que o advogado deponha, mas não pode romper o sigilo. Ou seja… duas interpretações."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Certo, vou ter mais cuidado agora."}
+      ]
+    }
   },
   {
     "client": "Joana",
-    "bgClass": "bg-casa",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a Joana tem 89 anos e está cheia de empréstimos para cuidar da saúde.",
-      "Ela diz que as parcelas já superam a aposentadoria. Veja o relato:"
-    ],
     "dialogue": "Tenho 89 anos e fiz vários empréstimos para cuidar da minha saúde. Agora as parcelas somadas são maiores que a minha aposentadoria e não sobra dinheiro nem para comer. Posso pedir na justiça para renegociar tudo de uma vez e garantir o mínimo para eu sobreviver? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 0,
-    "explanation": "Com base nas atualizações do Código de Defesa do Consumidor, o consumidor superendividado tem o direito de requerer judicialmente a repactuação de dívidas, visando a preservação do mínimo existencial. O juiz pode instituir um plano de pagamento compatível com a renda da pessoa para garantir sua subsistência."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Essa que vai vim eu fiquei bem triste com a situação."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Se você começou a sentir alguma coisa, já estamos avançando. Manda!"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "A cliente tem 89 e fez vários empréstimos para cuidar da saúde."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Hmm."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Mas as parcelas somadas são maiores que a aposentadoria dela e ela comentou que não sobra dinheiro nem para comer."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ela quer saber se é causa ganha?"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Finalmente acertei."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "E dessa vez não foi sorte."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Eu pensei que seria injusto demais não poder ajudar ela…"},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "E o Direito, às vezes, concorda com você."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Hoje existe proteção para o consumidor superendividado…"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ela pode pedir na Justiça a repactuação das dívidas, visando a preservação do mínimo existencial."}
+      ],
+      "wrong": [
+        {"speaker": "Advogado", "sprite": "serio", "text": "Errou uma das mais importantes"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Eu achei que como ele já fez dívidas, não tinha muito o que fazer"},
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "Esse pensamento é comum. E perigoso."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Atualmente, o Direito protege o superendividado."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ah sim, o mínimo existencial?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Exato. A criação de um plano de pagamento que caiba na renda dele, tem que ser preservado."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Então ele não pode ficar sem dinheiro para comer?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Não deve. A ideia é justamente evitar isso."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "P-perdão, vou revisar esse assunto melhor."}
+      ]
+    }
   },
   {
     "client": "Alice",
-    "bgClass": "bg-tribunal",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a advogada Alice está sendo investigada por fraude.",
-      "Ofereceram colaboração premiada se ela entregar provas contra cliente atual e ex-cliente. Olhe a proposta:"
-    ],
     "dialogue": "Doutora Alice, a senhora está sendo investigada por fraude. Se a senhora fizer uma colaboração premiada e nos entregar as provas que tem contra seu atual cliente e seu ex-cliente, nós aliviamos sua pena. Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 1,
-    "explanation": "O Estatuto da Advocacia (Art. 7º, § 6º-I) proíbe expressamente que o advogado efetue colaboração premiada contra quem seja ou tenha sido seu cliente. Caso o faça, a advogada sofrerá a pena de exclusão da OAB, além de responder criminalmente por violação de segredo profissional."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "D-doutor… essa próxima aqui parece ser peculiar."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Esses casos que você está me trazendo está cada vez mais fazendo a minha semana"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Sério?"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Claro que não. Ah, essa sua geração… Só prossiga"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ok!"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "A nossa cliente é uma advogada que está sendo investigada por fraude."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ele recebeu uma proposta que a sua pena seria aliviada se ela fizesse colaboração premiada e entregar provas contra seu atual cliente… e seu ex-cliente"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutor… pode isso?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Você que vai me dizer"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Dessa vez parecia errado… e era errado mesmo"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Aqui não tem margem para dúvida"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Eu achei muito errado… trair o próprio cliente"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "E é exatamente isso."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "O advogado não pode colaborar contra cliente ou ex-cliente."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Se fizer, pode até ser excluído do OAB."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "E ainda responder por violação de sigilo"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Caramba…"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Eu definitivamente não aceitaria essa proposta…"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Ainda bem, e olha que se eu escutar que você aprontou uma dessa rapaz"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "C-claro que não doutor"},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "HAHAHA relaxa, eu só estou brincando"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "V-vamos para o p-próximo caso"}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Acho que eu fiz besteira"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Fez. E grave!!"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Eu pensei que como era para reduzir a pena dela… talvez fosse permitido"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Claro que não."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Repare, quando envolve cliente o advogado não pode, em hipótese nenhuma colaborar contra cliente ou ex-cliente"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Isso viola o sigilo profissional."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "O Estatuto da Advocacia (Art. 7º, § 6º-I) proíbe expressamente que o advogado efetue colaboração premiada."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Caso o faça, a advogada sofrerá a pena de exclusão da OAB, além de responder criminalmente"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "É. Então aqui não tem discussão…"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Essa você errou e bem feio."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Pense um pouco melhor da próxima vez, isso é uma atuação criminosa."}
+      ]
+    }
   },
   {
     "client": "José",
-    "bgClass": "bg-delegacia",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a polícia apareceu no escritório do José com mandado.",
-      "Querem levar o servidor inteiro com dados de 500 clientes. Veja a preocupação dele:"
-    ],
     "dialogue": "A polícia veio no meu escritório com um mandado contra mim e quer levar meu servidor inteiro, onde estão os dados de todos os meus 500 clientes. Posso impedir que eles levem os dados de quem não é investigado? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 2,
-    "explanation": "A busca e apreensão é legítima se houver mandado, mas o advogado tem o direito de exigir a presença de um representante da OAB e acompanhar a análise dos arquivos. É proibida a utilização de documentos ou mídias de clientes que não sejam alvo da investigação, devendo ser garantido o sigilo de terceiros."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ok, essa aqui já está mais leve do que a última."},
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "Senhor! Já estou prevendo o que vai vir para frente."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Aconteceu um problema tecnológico jurídico!"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Se envolve tecnologia e Direito, eu já sei que alguém fez besteira. Fala."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Cliente José é advogado também e a polícia aparece no escritório dele com mandado"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E eles querem levar o servidor inteiro"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Inteiro?"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Sim. Tipo… TUDO!"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E ele relatou que lá possui dados de uns 500 clientes."},
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "Ai complicou. Esse é o caso que você disse que era mais leve."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Ah… Talvez eu tenha me equivocado um pouquinho."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Um pouquinho…"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E ele perguntou se pode impedir que levem os dados de quem não está sendo investigado."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Pergunta boa, e essa não é tão simples quanto parece."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Ai ai ai. Agora lascou!"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Essa aqui foi mais puxada."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Aqui tem dois lados, por isso você sentiu um pouco mais dificuldade em responder."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Dois lados?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "A busca e apreensão é válida, pois tem mandado."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Então eles podem levar o servidor?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Podem sim, mas não é terra sem lei, mesmo para a polícia"},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Hahaha"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "O advogado pode exigir a presença de um representante da OAB e acompanhar tudo"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Tipo fiscalização?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Exato, e os dados de clientes que não estão sendo investigados não podem ser usados."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Ok!"}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Ah não, errei!"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Normal errar essa questão, leve, como você mesmo disse."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Acabei achando que podia tudo ou não podia nada."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "E caiu no clássico 8 ou 80."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Repare, a busca é válida, pois a polícia tem mandado."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Mas o advogado tem o direito de exigir a presença de um representante da OAB e acompanhar a análise dos arquivos."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Nossa doutor! Faz sentido."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Com o tempo você vai pegando."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Espero que sim."}
+      ]
+    }
   },
   {
     "client": "Simone",
-    "bgClass": "bg-militar",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a Simone acompanha uma investigação preliminar militar.",
-      "Ela não pôde assistir ao depoimento do cliente nem fotografar documentos. Veja o que ela relata:"
-    ],
     "dialogue": "Meu cliente está em uma investigação preliminar militar e a autoridade não me deixou acompanhar o depoimento dele nem tirar fotos dos documentos já prontos. Posso anular tudo o que eles fizeram até agora? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 3,
-    "explanation": "Embora a Lei 13.245/2016 garante o acesso, as fontes mostram que as bancas e os tribunais ainda divergem sobre a natureza da nulidade. Alguns entendem que a falta do advogado na fase de inquérito gera nulidade absoluta de todos os atos derivados; outros defendem que, por ser fase pré-processual e informativa, a nulidade seria apenas relativa, dependendo da prova do prejuízo, o que torna o desfecho da causa incerto."
-  },
-  {
-    "client": "Clarisse",
-    "bgClass": "bg-corredor",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a Clarisse esqueceu de devolver um processo e ficou um mês com os autos.",
-      "O juiz proibiu ela de fazer carga em qualquer outro processo até o fim da causa. Olhe a situação:"
-    ],
-    "dialogue": "Esqueci de devolver um processo e fiquei com ele por um mês. O juiz me proibiu de fazer carga de qualquer outro processo até o fim da causa. Ele pode me punir assim direto sem me intimar para devolver antes? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
-    "correct": 3,
-    "explanation": "Existe uma divergência interpretativa nas fontes. O Estatuto (Art. 34, XXII) e a jurisprudência sugerem que a infração ética só ocorre se o advogado não devolver os autos após ser intimado pessoalmente para tanto. No entanto, muitos juízes aplicam a sanção processual de perda da vista fora de cartório imediatamente após o vencimento do prazo, gerando conflitos entre a prática judicial e o rigor estatutário."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutor, essa aqui é de um caso que eu vi de uma advogada e eu queria estudar mais sobre esse caso. Acabei ficando na dúvida e vim te perguntar também."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Aproveitar que já estou te ajudando nos outros casos, não é?!"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Sim, doutor. Não queria te incomodar em outro horário."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Aproveitar que já estou te ajudando nos outros casos, não é?!"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ela relatou que o cliente está em uma investigação preliminar militar e a autoridade não deixou ela acompanhar o depoimento dele nem tirar fotos dos documentos já prontos."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Estou na dúvida se ela pode anular tudo o que eles fizeram até agora?"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Tente reler novamente esse caso e responder a sua dúvida."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Acho que estou em risco…"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Talvez não tão em risco assim, como eu pensei."},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "Tá vendo! Está se preparando mais para essas situações"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Mas para ser sincero uma parte de mim não estava pensando nessa resposta. Não era direito dela acompanhar tudo?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "O advogado tem direito de acesso e acompanhamento. Ela sabe que se o cliente tiver prejuízo ela pode anular, mas se não tiver, o ato corre normalmente."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Então por que não dá para afirmar?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Existe divergência, alguns entendem que isso gera nulidade total dos atos e outros entendem que, como é fase investigativa, a nulidade é relativa."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ah, só anula se provar prejuízo?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Exato. Por isso não dá para afirmar."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Direito é basicamente isso, né?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Sim, vai se acostumando que mais casos como esse vão aparecer."}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Doutor, me ajuda a entender onde errei, por favor?"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Acho que vou explodir com esses casos de hoje."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Calma rapaz, é como aquele ditado fala: com prática vem a perfeição."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Temos que entender que há divergência."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Embora a Lei 13.245/2016 garanta o acesso, ainda há divergência sobre a natureza da nulidade."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ou seja, alguns entendem nulidade total e outros dizem que é nulidade relativa."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Então não dá para garantir o resultado."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Vamos para a próxima, talvez você acerte dessa vez."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Certo, vou ter mais cuidado agora."}
+      ]
+    }
   },
   {
     "client": "Pedro",
-    "bgClass": "bg-universidade",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, o Pedro é brasileiro nato e se formou em Direito no Equador.",
-      "Ele quer tirar a OAB sem revalidar o diploma estrangeiro. Veja o que ele pergunta:"
-    ],
     "dialogue": "Sou brasileiro nato, mas me formei em Direito no Equador. Quero tirar minha carteira da OAB no Brasil sem ter que fazer aquela burocracia de revalidar o diploma, afinal, sou brasileiro. Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 1,
-    "explanation": "Para a inscrição nos quadros da OAB, o diploma de graduação em Direito obtido em instituição estrangeira deve estar devidamente revalidado no Brasil, conforme exigência do Art. 8º, § 2º, do Estatuto, independentemente de o candidato ser brasileiro nato."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Ah doutor, essa daqui, dessa vez, eu acho que sei a resposta."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Geralmente, quando você fala assim, isso nunca termina bem."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Confia."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "O cliente é brasileiro nato, porém se formou em Direito no Equador."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Certo."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E ele quer tirar a OAB aqui, mas sem revalidar o diploma, porque ele é brasileiro."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Faz sentido, né?"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "ou talvez não faz sentido…"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Não sei, você que vai me dizer."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Concluindo, ele perguntou se poderia evitar essa burocracia."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Essa é clássica demais."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Vou confiar em você, como você pediu."}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Falei para confiar em mim, essa foi bem fácil"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Eu não sei se confiei totalmente, mas deixei você responder"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Mas não tem exceção?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Não, diploma estrangeiro precisa ser revalidado no Brasil."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Ok!"}
+      ],
+      "wrong": [
+        {"speaker": "Advogado", "sprite": "serio", "text": "Estagiário, que isso!!! Como você erra essa questão?"},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Tá vendo?! Caiu no clássico mas ele é brasileiro."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Veja só, para entrar na OAB, o diploma estrangeiro precisa ser revalidado no Brasil."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "A exigência é sobre o diploma, não a nacionalidade."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Achei que tinha descoberto um hack jurídico..."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Se fosse fácil assim, metade do país já estava inscrito na OAB."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Justo…"}
+      ]
+    }
   },
   {
     "client": "Margot",
-    "bgClass": "bg-bairro",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, a Margot comprou uma casa de um rapaz que depois foi preso.",
-      "A justiça sequestrou o imóvel alegando que ainda é dele. Ela pagou tudo, mas não registrou. Veja a dúvida:"
-    ],
     "dialogue": "Comprei uma casa de um rapaz que depois foi preso. Agora a justiça sequestrou a casa alegando que é dele, mas eu paguei tudo certinho, embora ainda não tenha registrado no cartório. Consigo a casa de volta? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 2,
-    "explanation": "Como adquirente de boa-fé e a título oneroso, Margot pode defender sua posse. O caminho é o ajuizamento de embargos de terceiro (ou incidente de restituição no CPP). O sucesso depende da comprovação cabal de que a compra foi feita antes do crime ou sem conhecimento da origem ilícita dos bens."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutor, essa aqui é pedrada. Parece até filme."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Pedrada?"},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Perdão, doutor, acabei me exaltando. Quis dizer, esse caso é bom."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Vocês mais jovens com essas gírias. Continue o caso."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Hehe. Então, esse caso envolve, basicamente, casa, dinheiro e crime."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "A cliente comprou uma casa, pagou tudo certo, mas o vendedor depois foi preso"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Agora a justiça sequestrou a casa alegando que é dele."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ela ainda não registrou no cartório, e ela quer saber se consegue a casa de volta?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Clássico problema patrimonial."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Essa aqui depende de um detalhe importante, vamos ver se você vai acertar."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Ai meu deus!!!"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Meio termo, já esperado."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Geralmente essas perguntas sempre tem essa pegadinha"},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "Olha, acho que você já está pegando o jeito."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Só lembrar se ela comprou de boa-fé e pagou de forma onerosa, pode se defender, mesmo sem registro."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Mas isso enfraquece a posição dela, então ela tem que provar isso."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Acho que estou começando a entender o depende... mas ainda sim, não gosto."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ninguém gosta. Mas cai na prova… E na vida real também."}
+      ],
+      "wrong": [
+        {"speaker": "Advogado", "sprite": "preocupado", "text": "É, depois dessa vou ter que tomar um café aqui porque essa resposta tirou minha paciência"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Doutor, você quer que eu pegue para você?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Não precisa, depois eu pego, é só um modo de falar."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Repare, tem um caminho no meio."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Qual?"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ela pode tentar recuperar o bem, mesmo sem registro."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Se ela comprou de boa-fé e pagou de forma onerosa, pode se defender."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "O caminho é o ajuizamento de embargos de terceiro (ou incidente de restituição no CPP)."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ela precisa provar que comprou antes do crime ou que não sabia da origem ilícita."},
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Então não é garantido…"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Isso, não é garantido."}
+      ]
+    }
   },
   {
     "client": "Júnior",
-    "bgClass": "bg-audiencia",
-    "spriteIntro": "img/estagiario_intro.jpg",
-    "spriteCase": "img/estagiario_case.jpg",
-    "spriteCorrect": "img/estagiario_feliz.jpg",
-    "spriteWrong": "img/estagiario_preocupado.jpg",
-    "internLines": [
-      "Doutor, o Júnior foi denunciado por estelionato.",
-      "Na audiência, o promotor exigiu acareação com uma testemunha que teria mentido. Veja a ameaça que ele recebeu:"
-    ],
     "dialogue": "Fui denunciado por estelionato. Na audiência, o promotor exigiu que eu fizesse uma acareação (um debate frente a frente) com uma testemunha que mentiu sobre mim. Eu me recusei a participar, mas ele diz que vou ser preso por desobediência se não aceitar. Posso me negar sem ser punido? Isso é causa ganha?",
-    "options": [
-      "(A) Sim, causa ganha",
-      "(B) Não, improcedente",
-      "(C) Parcialmente procedente",
-      "(D) Não dá pra afirmar"
-    ],
+    "options": ["(A) Sim, causa ganha","(B) Não, improcedente","(C) Parcialmente procedente","(D) Não dá pra afirmar"],
     "correct": 0,
-    "explanation": "Ninguém é obrigado a produzir prova contra si mesmo (nemo tenetur se detegere). O princípio da presunção de inocência e da ampla defesa garantem ao réu o direito de não participar de procedimentos como a acareação, sem que isso configure crime de desobediência ou qualquer prejuízo jurídico."
+    "dialogues": {
+      "intro": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Estamos acabando doutor, esse é o último caso."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Vamos lá, que vai dar tempo de eu ver meus próprios processos depois."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Essa aqui se escalou muito rápido. O cliente foi denunciado por estelionato…"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E na audiência, o promotor mandou ele fazer uma acareação com uma testemunha"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Só que de acordo com ele, essa testemunha mentiu sobre ele."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Ele se recusou, e o promotor disse que ele vai ser preso por desobediência."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "O promotor falou isso?"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Falou…"},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Então, ele quer saber se pode se negar sem ser punido. E se isso é causa ganha?"}
+      ],
+      "correct": [
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Easy."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Fala português rapaz."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Estava fácil essa."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Essa foi mamão com açúcar mesmo."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Ei, por que você pode falar expressões e eu não posso falar minhas gírias."},
+        {"speaker": "Advogado", "sprite": "serio", "text": "Talvez porque eu seja o seu superior."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Ah, hehe."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ninguém é obrigado a produzir prova contra si mesmo."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Sim. Exercício de um direito não é crime."},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "Olha, está pegando o jeito rapaz"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Hoje você terminou bem."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Eu vou parar por aqui para não estragar."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "E tecnicamente, essa foi a última também."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Vai lá, continue com o bom trabalho, e revise as que você ficou com dúvida."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Obrigado doutor."}
+      ],
+      "wrong": [
+        {"speaker": "Estagiário", "sprite": "triste", "text": "Aaaa, eu sabia disso, é aquele nemo… alguma coisa né…"},
+        {"speaker": "Advogado", "sprite": "sorrindo", "text": "Procurando nemo."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Hahaha. Eu esqueci de verdade."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "nemo tenetur se detegere"},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Isso!!! Ah, estava na ponta da minha língua."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Ninguém é obrigado a produzir prova contra si mesmo."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "É daí que vem esse termo."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "O princípio da presunção de inocência e da ampla defesa garante ao réu o direito de não participar de procedimentos como a acareação…"},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Sem que isso configure crime de desobediência ou qualquer prejuízo jurídico."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Agora, você não esquece mais."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Espero que não, doutor."},
+        {"speaker": "Estagiário", "sprite": "feliz", "text": "Obrigado pela ajuda de hoje."},
+        {"speaker": "Advogado", "sprite": "neutro", "text": "Tudo bem. Se lembre que todo mundo erra. Só revisar os assuntos que você ficou com dúvida, ou errou, e já já vai estar pegando o jeito das coisas."},
+        {"speaker": "Estagiário", "sprite": "falando", "text": "Certo, novamente, muito obrigado."}
+      ]
+    }
   }
 ]
