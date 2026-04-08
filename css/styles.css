@@ -67,37 +67,71 @@ body {
 }
 
 /* ========================================
-   CONTAINER DE SPRITES
+   CONTAINER DE SPRITES - DOIS PERSONAGENS
+   Estagiário (esquerda) | Advogado (direita)
    ======================================== */
 .characters-container {
     position: absolute;
     bottom: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: calc(100% - 250px);
+    left: 0;
+    right: 0;
+    height: calc(100% - 200px);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
+    padding: 0 20px;
     z-index: 10;
+    pointer-events: none;
+    /* Fade ao esconder/mostrar o container inteiro */
+    transition: opacity 0.4s ease;
+}
+
+/* Container invisível durante o quiz */
+.characters-container.hidden-sprites {
+    opacity: 0;
     pointer-events: none;
 }
 
+/* Wrapper de cada sprite — sem dimm, sempre visível */
+.sprite-wrapper {
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease;
+}
+
+/* ----------------------------------------
+   ESTAGIÁRIO (esquerda) — sempre espelhado
+   ---------------------------------------- */
+.sprite-wrapper.left {
+    transform: scaleX(-1);
+    transform-origin: bottom center;
+}
+
+.sprite-wrapper.left.speaking {
+    transform: scaleX(-1) scale(1.03);
+}
+
+/* ----------------------------------------
+   ADVOGADO (direita)
+   ---------------------------------------- */
+.sprite-wrapper.right {
+    transform-origin: bottom center;
+}
+
+.sprite-wrapper.right.speaking {
+    transform: scale(1.03);
+}
+
+/* ----------------------------------------
+   IMAGEM DO SPRITE — tamanho grande
+   ---------------------------------------- */
 .character-sprite {
-    max-height: 85%;
-    height: auto;
+    height: clamp(420px, 65vh, 720px);
     width: auto;
     object-fit: contain;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.character-sprite.hidden {
-    opacity: 0;
-}
-
-.character-sprite.speaking {
-    transform: scale(1.02);
-    filter: brightness(1.05) drop-shadow(0 0 0px rgba(255, 215, 0, 0.3));
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* ========================================
@@ -299,11 +333,12 @@ body {
     }
 
     .characters-container {
-        bottom: 180px;
+        bottom: 170px;
+        padding: 0 5px;
     }
 
     .character-sprite {
-        max-height: 65%;
+        height: clamp(260px, 45vh, 420px);
     }
 
     .dialogue-box {

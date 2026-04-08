@@ -64,6 +64,7 @@ async function startGame() {
         updateHUD();
         startTimer();
         
+        initBothSprites();
         loadQuestion(0);
         
     } catch (error) {
@@ -117,16 +118,95 @@ function stopTimer() {
 }
 
 // ========================================
+// SPRITES DUPLOS - SEMPRE NA TELA
+// Estagiário (esquerda) | Advogado (direita)
+// ========================================
+
+function initBothSprites() {
+    charactersContainer.innerHTML = '';
+    charactersContainer.classList.remove('hidden-sprites');
+
+    // Estagiário (esquerda, espelhado via CSS)
+    const estagiarioDiv = document.createElement('div');
+    estagiarioDiv.id = 'sprite-estagiario';
+    estagiarioDiv.className = 'sprite-wrapper left';
+
+    const estagiarioImg = document.createElement('img');
+    estagiarioImg.src = 'img/stg sprites/estagiario_neutro.png';
+    estagiarioImg.alt = 'Estagiário';
+    estagiarioImg.className = 'character-sprite';
+    estagiarioImg.onerror = function() { this.style.visibility = 'hidden'; };
+
+    estagiarioDiv.appendChild(estagiarioImg);
+    charactersContainer.appendChild(estagiarioDiv);
+
+    // Advogado (direita)
+    const advogadoDiv = document.createElement('div');
+    advogadoDiv.id = 'sprite-advogado';
+    advogadoDiv.className = 'sprite-wrapper right';
+
+    const advogadoImg = document.createElement('img');
+    advogadoImg.src = 'img/adv sprites/advogado_neutro.png';
+    advogadoImg.alt = 'Advogado Sênior';
+    advogadoImg.className = 'character-sprite';
+    advogadoImg.onerror = function() { this.style.visibility = 'hidden'; };
+
+    advogadoDiv.appendChild(advogadoImg);
+    charactersContainer.appendChild(advogadoDiv);
+}
+
+function updateCharacterSprites(speaker, sprite) {
+    const estagiarioWrapper = document.getElementById('sprite-estagiario');
+    const advogadoWrapper = document.getElementById('sprite-advogado');
+
+    if (!estagiarioWrapper || !advogadoWrapper) {
+        initBothSprites();
+        updateCharacterSprites(speaker, sprite);
+        return;
+    }
+
+    const estagiarioImg = estagiarioWrapper.querySelector('img');
+    const advogadoImg = advogadoWrapper.querySelector('img');
+
+    if (speaker === 'Estagiário') {
+        if (estagiarioImg) {
+            estagiarioImg.src = `img/stg sprites/estagiario_${sprite}.png`;
+            estagiarioImg.style.visibility = 'visible';
+        }
+        estagiarioWrapper.classList.add('speaking');
+        advogadoWrapper.classList.remove('speaking');
+
+    } else if (speaker === 'Advogado') {
+        if (advogadoImg) {
+            advogadoImg.src = `img/adv sprites/advogado_${sprite}.png`;
+            advogadoImg.style.visibility = 'visible';
+        }
+        advogadoWrapper.classList.add('speaking');
+        estagiarioWrapper.classList.remove('speaking');
+    }
+}
+
+// Esconde os sprites com fade durante o quiz
+function hideSprites() {
+    charactersContainer.classList.add('hidden-sprites');
+}
+
+// Mostra os sprites com fade ao voltar para o diálogo
+function showSprites() {
+    charactersContainer.classList.remove('hidden-sprites');
+}
+
+// ========================================
 // CARREGAMENTO QUESTÃO
 // ========================================
 function loadQuestion(index) {
     currentQuestionIndex = index;
     const question = gameData[index];
-    
+
     currentDialogueSet = question.dialogues.intro;
     currentDialogueIndex = 0;
     dialogueMode = 'intro';
-    
+
     showDialogue();
 }
 
@@ -135,25 +215,25 @@ function loadQuestion(index) {
 // ========================================
 function showDialogue() {
     const line = currentDialogueSet[currentDialogueIndex];
-    
+
     if (!line) {
         advanceDialoguePhase();
         return;
     }
-    
+
     speakerName.textContent = line.speaker;
     dialogueText.textContent = line.text;
-    
+
     updateCharacterSprites(line.speaker, line.sprite || 'neutro');
-    
+
     continueIndicator.classList.remove('hidden');
 }
 
 function nextDialogue() {
     clickSound.play().catch(() => {});
-    
+
     currentDialogueIndex++;
-    
+
     if (currentDialogueIndex < currentDialogueSet.length) {
         showDialogue();
     } else {
@@ -162,14 +242,12 @@ function nextDialogue() {
 }
 
 function advanceDialoguePhase() {
-    const question = gameData[currentQuestionIndex];
-    
     if (dialogueMode === 'intro') {
         dialogueMode = 'quiz';
         showQuiz();
     } else if (dialogueMode === 'correct' || dialogueMode === 'wrong') {
         currentQuestionIndex++;
-        
+
         if (currentQuestionIndex < gameData.length) {
             loadQuestion(currentQuestionIndex);
         } else {
@@ -179,57 +257,19 @@ function advanceDialoguePhase() {
 }
 
 // ========================================
-// CONTROLE VISUAL DOS SPRITES
-// ========================================
-function hideCharacters() {
-    charactersContainer.style.visibility = 'hidden';
-}
-
-function showCharacters() {
-    charactersContainer.style.visibility = 'visible';
-}
-
-// ========================================
-// ATUALIZAÇÃO SPRITES
-// ========================================
-function updateCharacterSprites(speaker, sprite) {
-    charactersContainer.innerHTML = '';
-    
-    if (speaker === 'Advogado') {
-        const advogadoImg = document.createElement('img');
-        advogadoImg.src = `img/adv sprites/advogado_${sprite}.png`;
-        advogadoImg.alt = 'Advogado Sênior';
-        advogadoImg.className = 'character-sprite speaking';
-        advogadoImg.onerror = function() {
-            this.style.display = 'none';
-        };
-        charactersContainer.appendChild(advogadoImg);
-    }
-    else if(speaker == 'Estagiário'){
-        const estagiarioImg = document.createElement('img');
-        estagiarioImg.src = `img/stg sprites/estagiario_${sprite}.png`;
-        estagiarioImg.alt = 'Estagiário';
-        estagiarioImg.className = 'character-sprite speaking';
-        estagiarioImg.onerror = function() {
-            this.style.display = 'none';
-        };
-        charactersContainer.appendChild(estagiarioImg);
-    }
-}
-
-// ========================================
 // SISTEMA QUIZ
 // ========================================
 function showQuiz() {
     const question = gameData[currentQuestionIndex];
-    
-    hideCharacters();
-    
+
+    // Sprites somem com fade
+    hideSprites();
+
     dialogueBox.style.display = 'none';
     quizPanel.classList.remove('hidden');
-    
+
     quizContext.innerHTML = `<strong>Cliente ${question.client}:</strong><br>${question.dialogue}`;
-    
+
     quizOptions.innerHTML = '';
     question.options.forEach((option, index) => {
         const btn = document.createElement('button');
@@ -242,15 +282,15 @@ function showQuiz() {
 function selectAnswer(index) {
     const question = gameData[currentQuestionIndex];
     selectedAnswer = index;
-    
+
     const buttons = quizOptions.querySelectorAll('button');
     buttons.forEach(btn => btn.disabled = true);
-    
+
     buttons[question.correct].classList.add('correct');
     if (index !== question.correct) {
         buttons[index].classList.add('incorrect');
     }
-    
+
     const isCorrect = (index === question.correct);
     if (isCorrect) {
         score++;
@@ -259,7 +299,7 @@ function selectAnswer(index) {
     } else {
         erroSound.play().catch(() => {});
     }
-    
+
     setTimeout(() => {
         showFeedbackDialogue(isCorrect);
     }, 1500);
@@ -267,12 +307,13 @@ function selectAnswer(index) {
 
 function showFeedbackDialogue(isCorrect) {
     const question = gameData[currentQuestionIndex];
-    
+
     quizPanel.classList.add('hidden');
     dialogueBox.style.display = 'block';
-    
-    showCharacters();
-    
+
+    // Sprites voltam com fade
+    showSprites();
+
     if (isCorrect) {
         currentDialogueSet = question.dialogues.correct;
         dialogueMode = 'correct';
@@ -280,7 +321,7 @@ function showFeedbackDialogue(isCorrect) {
         currentDialogueSet = question.dialogues.wrong;
         dialogueMode = 'wrong';
     }
-    
+
     currentDialogueIndex = 0;
     showDialogue();
 }
@@ -290,18 +331,18 @@ function showFeedbackDialogue(isCorrect) {
 // ========================================
 function endGame(reason) {
     stopTimer();
-    
+
     dialogueBox.style.display = 'none';
     quizPanel.classList.add('hidden');
     charactersContainer.innerHTML = '';
-    
+
     let message = '';
     if (reason === 'completed') {
         message = `<h1>Parabéns!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você completou todas as questões.</p><p style="color: #ffd700; font-size: 24px;">Pontuação final: <strong>${score} / ${gameData.length}</strong></p>`;
     } else if (reason === 'timeout') {
         message = `<h1>Tempo esgotado!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você não conseguiu completar a tempo.</p><p style="color: #ffd700; font-size: 24px;">Pontuação obtida: <strong>${score} / ${gameData.length}</strong></p>`;
     }
-    
+
     menuScreen.innerHTML = message + '<button class="start-button" onclick="location.reload()">Jogar Novamente</button>';
     menuScreen.classList.remove('hidden');
 }
