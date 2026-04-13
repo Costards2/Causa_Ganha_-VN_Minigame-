@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isso é Causa Ganha, Doutor?</title>
+    <title>Isso é Causa Ganha</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- HUD superior -->
-    <div class="hud">
+    <div class="hud hidden">
         <div class="timer" id="timer">Tempo: 12:00</div>
         <div class="score" id="score">Pontos: 0 / 10</div>
     </div>
 
     <!-- Cenário de fundo -->
-    <div class="scene-background" id="scene-bg"></div>
+    <div class="scene-background inicio" id="scene-bg"></div>
 
     <!-- Container de sprites (apenas Advogado - perspectiva primeira pessoa) -->
     <div class="characters-container" id="characters-container"></div>
 
     <!-- Caixa de diálogo estilo DDLC (parte inferior) -->
-    <div class="dialogue-box" id="dialogue-box">
+    <div class="dialogue-box hidden" id="dialogue-box">
         <div class="speaker-name" id="speaker-name">Estagiário</div>
         <div class="dialogue-text" id="dialogue-text">
             Clique para iniciar...
@@ -36,7 +36,7 @@
 
     <!-- Botão iniciar (tela de menu) -->
     <div class="menu-screen" id="menu-screen">
-        <h1>Isso é Causa Ganha, Doutor?</h1>
+        <h1></h1>
         <button class="start-button" onclick="startGame()">Iniciar Jogo</button>
     </div>
 

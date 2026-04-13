@@ -60,6 +60,8 @@ async function startGame() {
         remainingTime = TOTAL_TIME;
         
         menuScreen.classList.add('hidden');
+        document.querySelector('.hud').classList.remove('hidden');
+        dialogueBox.classList.remove('hidden');
         setupScene();
         updateHUD();
         startTimer();

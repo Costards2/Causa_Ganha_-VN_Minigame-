@@ -1,6 +1,6 @@
 /* ========================================
    PALETA DE CORES: PRETO E DOURADO
-   Preto: #000000, #1a1a1a
+   Preto: #1F3A56, #1F3A56
    Dourado: #d4af37, #ffd700, #b8860b
    ======================================== */
 
@@ -16,7 +16,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background: #000000;
+    background: #1F3A56;
 }
 
 /* ========================================
@@ -32,7 +32,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    background-color: #1a1a1a;
+    background-color: #1F3A56; 
+}
+
+.scene-background.inicio {
+    background-image: url('../img/InterfaceSemBotao.png');
 }
 
 .scene-background.escritorio {
@@ -56,14 +60,13 @@ body {
 
 .timer,
 .score {
-    background: rgba(0, 0, 0, 0.85);
+    background: #1F3A56;
     border: 2px solid #d4af37;
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
-    color: #ffd700;
-    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.4);
+    color: #ffffff;
 }
 
 /* ========================================
@@ -142,23 +145,21 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    color: #ffd700;
+    background: #1F3A56;
+    color: #ffffff;
     padding: 25px 40px 30px 40px;
     z-index: 50;
     cursor: pointer;
     border-top: 3px solid #d4af37;
-    box-shadow: 0 -4px 20px rgba(212, 175, 55, 0.3);
 }
 
 .speaker-name {
     font-size: 22px;
     font-weight: bold;
-    color: #ffd700;
+    color: #ffffff;
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .dialogue-text {
@@ -194,13 +195,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.95);
+    background: #1F3A56;
     border: 3px solid #d4af37;
     border-radius: 15px;
     padding: 30px;
     max-width: 700px;
     width: 90%;
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.5);
     z-index: 60;
 }
 
@@ -209,14 +209,15 @@ body {
 }
 
 .quiz-context {
-    background: #1a1a1a;
-    border-left: 5px solid #d4af37;
+    background: #1F3A56;
+    border: 3px solid #d4af37;
+    border-left: 8px solid #d4af37;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
     font-size: 16px;
     line-height: 1.5;
-    color: #ffd700;
+    color: #ffffff;
 }
 
 .quiz-options {
@@ -230,8 +231,8 @@ body {
     font-size: 18px;
     border-radius: 8px;
     border: 2px solid #d4af37;
-    background: #000000;
-    color: #ffd700;
+    background: #1F3A56;
+    color: #ffffff;
     cursor: pointer;
     transition: all 0.2s;
     text-align: left;
@@ -239,7 +240,7 @@ body {
 
 .quiz-options button:hover:not(:disabled) {
     transform: translateY(-2px);
-    background: #1a1a1a;
+    background: #1F3A56;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
     border-color: #ffd700;
 }
@@ -269,7 +270,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);
+    background: rgba(0, 0, 0, 0); /* sem gradiente */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -285,6 +286,7 @@ body {
 }
 
 .menu-screen h1 {
+    position: relative;
     font-size: 48px;
     margin-bottom: 60px;
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
@@ -292,22 +294,23 @@ body {
 }
 
 .start-button {
+    position: absolute;
+    bottom: 200px;
     font-size: 24px;
     padding: 20px 50px;
     border-radius: 50px;
     border: 3px solid #d4af37;
-    background: #000000;
-    color: #ffd700;
+    background: #d4af37;
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
     transition: all 0.3s;
 }
 
 .start-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 30px rgba(255, 215, 0, 0.7);
-    background: #1a1a1a;
+    background: #d4af37;
     border-color: #ffd700;
 }
 
