@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isso é Causa Ganha</title>
+    <title>Isso é Causa Ganha, Doutor?</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
     <!-- HUD superior -->
     <div class="hud hidden">
         <div class="timer" id="timer">Tempo: 12:00</div>
@@ -16,25 +17,26 @@
     <!-- Cenário de fundo -->
     <div class="scene-background inicio" id="scene-bg"></div>
 
-    <!-- Container de sprites (apenas Advogado - perspectiva primeira pessoa) -->
+    <!-- Container de sprites -->
     <div class="characters-container" id="characters-container"></div>
 
-    <!-- Caixa de diálogo estilo DDLC (parte inferior) -->
+    <!-- Caixa de diálogo -->
     <div class="dialogue-box hidden" id="dialogue-box">
         <div class="speaker-name" id="speaker-name">Estagiário</div>
-        <div class="dialogue-text" id="dialogue-text">
-            Clique para iniciar...
-        </div>
+        <div class="dialogue-text" id="dialogue-text">Clique para iniciar...</div>
         <div class="continue-indicator" id="continue-indicator">▼</div>
     </div>
 
-    <!-- Painel de quiz (oculto inicialmente) -->
+    <!-- Painel de quiz -->
     <div class="quiz-panel hidden" id="quiz-panel">
         <div class="quiz-context" id="quiz-context"></div>
         <div class="quiz-options" id="quiz-options"></div>
     </div>
 
-    <!-- Botão iniciar (tela de menu) -->
+    <!-- Painel de fim de jogo -->
+    <div id="end-panel" class="hidden end-panel"></div>
+
+    <!-- Tela de menu -->
     <div class="menu-screen" id="menu-screen">
         <h1></h1>
         <button class="start-button" onclick="startGame()">Iniciar Jogo</button>

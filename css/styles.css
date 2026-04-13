@@ -314,12 +314,35 @@ body {
     border-color: #ffd700;
 }
 
+.end-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1F3A56;
+    border: 3px solid #d4af37;
+    z-index: 300;
+    color: #ffd700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;      
+    text-align: center;
+    padding: 20px;
+}
+
+.end-panel.hidden {
+    display: none;
+}
+
 /* ========================================
    UTILITÁRIOS
    ======================================== */
 .hidden {
     display: none !important;
 }
+
 
 /* ========================================
    RESPONSIVO
@@ -378,5 +401,10 @@ body {
     .start-button {
         font-size: 20px;
         padding: 15px 35px;
+    }
+
+     .end-panel {
+        padding: 20px;
+        max-width: 95%;
     }
 }

@@ -15,7 +15,7 @@ let score = 0;
 let selectedAnswer = null;
 
 // Timer
-const TOTAL_TIME = 720;
+const TOTAL_TIME = 900; // 15 min = 900 segundos
 let remainingTime = TOTAL_TIME;
 let timerIntervalId = null;
 
@@ -32,6 +32,7 @@ const continueIndicator = document.getElementById('continue-indicator');
 const quizPanel = document.getElementById('quiz-panel');
 const quizContext = document.getElementById('quiz-context');
 const quizOptions = document.getElementById('quiz-options');
+const endPanel = document.getElementById('end-panel');
 const timerDiv = document.getElementById('timer');
 const scoreDiv = document.getElementById('score');
 
@@ -334,19 +335,43 @@ function showFeedbackDialogue(isCorrect) {
 function endGame(reason) {
     stopTimer();
 
-    dialogueBox.style.display = 'none';
+    // Esconde elementos do jogo
+    dialogueBox.classList.add('hidden');
     quizPanel.classList.add('hidden');
     charactersContainer.innerHTML = '';
 
+    // Mostra o painel final
+    endPanel.classList.remove('hidden');
+
     let message = '';
+
     if (reason === 'completed') {
-        message = `<h1>Parabéns!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você completou todas as questões.</p><p style="color: #ffd700; font-size: 24px;">Pontuação final: <strong>${score} / ${gameData.length}</strong></p>`;
+        message = `
+            <h1 style="color: #ffd700"; >Parabéns!</h1>
+            <p style="color: #ffffff; font-size: 20px; margin: 20px 0;">
+                Você completou todas as questões.
+            </p>
+            <p style="color: #ffffff; font-size: 24px;">
+                Pontuação final: <strong>${score} / ${gameData.length}</strong>
+            </p>
+        `;
     } else if (reason === 'timeout') {
-        message = `<h1>Tempo esgotado!</h1><p style="color: #ffd700; font-size: 20px; margin: 20px 0;">Você não conseguiu completar a tempo.</p><p style="color: #ffd700; font-size: 24px;">Pontuação obtida: <strong>${score} / ${gameData.length}</strong></p>`;
+        message = `
+            <h1 style="color: #ffd700";>Tempo esgotado!</h1>
+            <p style="color: #ffffff; font-size: 20px; margin: 20px 0;">
+                Você não conseguiu completar a tempo.
+            </p>
+            <p style="color: #ffffff; font-size: 24px;">
+                Pontuação obtida: <strong>${score} / ${gameData.length}</strong>
+            </p>
+        `;
     }
 
-    menuScreen.innerHTML = message + '<button class="start-button" onclick="location.reload()">Jogar Novamente</button>';
-    menuScreen.classList.remove('hidden');
+    // Preenche o painel final
+    endPanel.innerHTML = `
+        ${message}
+        <button class="start-button" onclick="location.reload()">Jogar Novamente</button>
+    `;
 }
 
 // ========================================
