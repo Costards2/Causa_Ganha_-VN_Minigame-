@@ -15,7 +15,7 @@ let score = 0;
 let selectedAnswer = null;
 
 // Timer
-const TOTAL_TIME = 900; // 15 min = 900 segundos
+const TOTAL_TIME = 1620; // 15 min = 900 segundos
 let remainingTime = TOTAL_TIME;
 let timerIntervalId = null;
 
