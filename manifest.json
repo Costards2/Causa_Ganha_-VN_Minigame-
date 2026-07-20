@@ -1,14 +1,26 @@
 {
   "name": "Causa Ganha - Direito",
   "version": "1.2.0",
-  "description": "Quiz interativo com 10 questões",
-  "entryPoint": "index.html",
   "type": "html",
-  "author": "Pedro Costard & Ana Clara",
-  "minWidth": 800,  
-  "minHeight": 600,
-  "aspectRatio": "16:9",
-  "aiEnabled": false,
-  "maxAiRequests": 0,
-  "dependencies": []
+  "entryPoint": "index.html",
+  "settings": {
+    "width": "100%",
+    "height": "100%",
+    "allowFullscreen": true,
+    "backgroundColor": "#000000"
+  },
+  "permissions": ["progress"],
+  "scoring": {
+    "maxScore": 9,
+    "passingScore": 6,
+    "trackTime": true
+  },
+  "metadata": {
+    "subject": "Direito",
+    "difficulty": "medium",
+    "estimatedTime": 27,
+    "description": "Quiz interativo com 9 questoes em formato visual novel",
+    "author": "Pedro Costard & Ana Clara",
+    "tags": ["direito", "quiz", "visual-novel"]
+  }
 }

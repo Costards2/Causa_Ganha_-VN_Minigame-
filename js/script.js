@@ -1,7 +1,7 @@
-/* ========================================
-   VISUAL NOVEL ENGINE
-   "Isso é Causa Ganha, Doutor?"
-   ======================================== */
+// ========================================
+// VISUAL NOVEL ENGINE
+// "Isso é Causa Ganha, Doutor?"
+// ========================================
 
 // ========================================
 // ESTADO GLOBAL
@@ -15,7 +15,7 @@ let score = 0;
 let selectedAnswer = null;
 
 // Timer
-const TOTAL_TIME = 1620; // 15 min = 900 segundos
+const TOTAL_TIME = 1620; // 15 min = 900 segundos (nota: 1620 seriam 27 mins, mas mantive sua constante)
 let remainingTime = TOTAL_TIME;
 let timerIntervalId = null;
 
