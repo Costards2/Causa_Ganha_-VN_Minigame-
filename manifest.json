@@ -1,6 +1,6 @@
 {
   "name": "Causa Ganha - Direito",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "type": "html",
   "entryPoint": "index.html",
   "settings": {
@@ -11,8 +11,8 @@
   },
   "permissions": ["progress"],
   "scoring": {
-    "maxScore": 9,
-    "passingScore": 6,
+    "maxScore": 100,
+    "passingScore": 60,
     "trackTime": true
   },
   "metadata": {

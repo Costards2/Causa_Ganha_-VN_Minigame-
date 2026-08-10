@@ -4,44 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isso é Causa Ganha, Doutor?</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- HUD superior -->
+    <!-- ==========================================
+         TELA INICIAL
+    =========================================== -->
+
+    <div id="menu-screen" class="menu-screen">
+
+        <div class="logo-oabd">
+            OABD
+        </div>
+
+        <div class="menu-frame">
+
+            <div class="menu-content">
+
+                <h1 class="menu-title">
+                    Isso é Causa<br>
+                    <span>Ganha, Doutor?</span>
+                </h1>
+
+                <button
+                    class="start-button"
+                    onclick="startGame()">
+
+                    Iniciar Jogo
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         HUD
+    =========================================== -->
+
     <div class="hud hidden">
-        <div class="timer" id="timer">Tempo: 12:00</div>
-        <div class="score" id="score">Pontos: 0 / 10</div>
+
+        <div class="timer" id="timer">
+            Tempo: 27:00
+        </div>
+
+        <div class="score" id="score">
+            Pontos: 0 / 10
+        </div>
+
     </div>
 
-    <!-- Cenário de fundo -->
-    <div class="scene-background inicio" id="scene-bg"></div>
+    <!-- ==========================================
+         CENÁRIO
+    =========================================== -->
 
-    <!-- Container de sprites -->
-    <div class="characters-container" id="characters-container"></div>
-
-    <!-- Caixa de diálogo -->
-    <div class="dialogue-box hidden" id="dialogue-box">
-        <div class="speaker-name" id="speaker-name">Estagiário</div>
-        <div class="dialogue-text" id="dialogue-text">Clique para iniciar...</div>
-        <div class="continue-indicator" id="continue-indicator">▼</div>
+    <div
+        class="scene-background"
+        id="scene-bg">
     </div>
 
-    <!-- Painel de quiz -->
-    <div class="quiz-panel hidden" id="quiz-panel">
-        <div class="quiz-context" id="quiz-context"></div>
-        <div class="quiz-options" id="quiz-options"></div>
+    <!-- ==========================================
+         PERSONAGENS
+    =========================================== -->
+
+    <div
+        class="characters-container"
+        id="characters-container">
     </div>
 
-    <!-- Painel de fim de jogo -->
-    <div id="end-panel" class="hidden end-panel"></div>
+    <!-- ==========================================
+         DIÁLOGO
+    =========================================== -->
 
-    <!-- Tela de menu -->
-    <div class="menu-screen" id="menu-screen">
-        <h1></h1>
-        <button class="start-button" onclick="startGame()">Iniciar Jogo</button>
+    <div
+        class="dialogue-box hidden"
+        id="dialogue-box">
+
+        <div
+            class="speaker-name"
+            id="speaker-name">
+
+            Estagiário
+
+        </div>
+
+        <div
+            class="dialogue-text"
+            id="dialogue-text">
+
+            Clique para iniciar...
+
+        </div>
+
+        <div
+            class="continue-indicator hidden"
+            id="continue-indicator">
+
+            ▼
+
+        </div>
+
     </div>
 
+    <!-- ==========================================
+         QUIZ
+    =========================================== -->
+
+    <div
+        class="quiz-panel hidden"
+        id="quiz-panel">
+
+        <div
+            class="quiz-context"
+            id="quiz-context">
+        </div>
+
+        <div
+            class="quiz-options"
+            id="quiz-options">
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         FIM DE JOGO
+    =========================================== -->
+
+    <div
+        id="end-panel"
+        class="hidden end-panel">
+    </div>
+
+    <!-- ==========================================
+         SCRIPT
+    =========================================== -->
+
+    <!-- SDK da plataforma Cayres (servido pela plataforma). Fora dela o
+         arquivo nao existe e o bridge entra em modo standalone. -->
+    <script src="/sdk/platform-sdk.min.js"></script>
+    <script src="js/platform-bridge.js"></script>
     <script src="js/script.js"></script>
+
 </body>
 </html>
